@@ -35,21 +35,21 @@ jobs:
     - name: Create zip archive
       run: zip -r veracode.zip ./output
 
-#     - name: Setup .NET
-#       run: |
-#         choco install dotnetcore-sdk -y
-#         dotnet --version
-#     - name: Build application
-#       run: |
-#         dotnet restore
-#         dotnet publish -c Debug -o ./output
+    - name: Setup .NET
+      run: |
+         choco install dotnetcore-sdk -y
+         dotnet --version
+    - name: Build application
+      run: |
+         dotnet restore
+         dotnet publish -c Debug -o ./output
         
-#     - name: Setup 7zip
-#       run: |
-#         choco install 7zip -y
+    - name: Setup 7zip
+      run: |
+         choco install 7zip -y
         
-#     - name: Create zip archive
-#       run: 7z a -tzip veracode.zip ./output
+    - name: Create zip archive
+      run: 7z a -tzip veracode.zip ./output
         
     - uses: actions/upload-artifact@v3
       with:
