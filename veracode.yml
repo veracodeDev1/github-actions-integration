@@ -12,7 +12,7 @@ veracode_static_scan:
     branches_to_exclude:
       - default_branch
   pull_request:
-    trigger: true
+    trigger: false
     action:
       - opened
       - closed
@@ -24,7 +24,7 @@ veracode_static_scan:
   # By selecting a branch here - Veracode will save your last scan result
   # As an App Profile - given the current name of your scanned repo
   # Use 'none' if you would not like any scans saved to the platform
-  analysis_branch: develop
+  analysis_branch: test
   #If the break_build_policy_findings is set to true, the build will break if the pipeline scan finds any policy violations.      
   break_build_policy_findings: true
   #If the break_build_on_error is set to true, the build will break if the scan failed to complete in time or with an error.
@@ -45,9 +45,11 @@ veracode_sca_scan:
       - "*"
     branches_to_exclude:
   pull_request:
-    trigger: false
+    trigger: true
     action:
       - opened
+      - reopened
+      - closed
       - synchronize
     target_branch:
       - default_branch
